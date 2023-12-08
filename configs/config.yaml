@@ -1,0 +1,44 @@
+broker:
+    nsq:
+        addr: 127.0.0.1:4150
+        nsqlookupaddr:
+            - 127.0.0.1:4161
+    type: nsq
+cache:
+    type: "redis"
+    addr: "127.0.0.1:6379"
+    password: ""
+    db: 1
+db:
+    dsn: root:password@tcp(127.0.0.1:3306)/simple?charset=utf8mb4&collation=utf8mb4_unicode_ci&parseTime=True&loc=Local&multiStatements=true
+    prefix: sm_
+debug: true
+env: dev
+etcd:
+    endpoints:
+        - 127.0.0.1:2379
+    prefix: /config
+http:
+    address:
+        - :8080
+logger:
+    level: info
+    logfile:
+        enable: true
+        errorfilename: ./runtime/logs/cago.err.log
+        filename: ./runtime/logs/cago.log
+    loki:
+        level: info
+        url: http://127.0.0.1:3100/loki/api/v1/push
+redis:
+    addr: 127.0.0.1:6379
+    db: 0
+    password: ""
+source: file
+trace:
+    endpoint: localhost:4317
+    sample: 1
+    useSSL: false
+    header:
+        Authorization: ""
+version: 1.0.0
